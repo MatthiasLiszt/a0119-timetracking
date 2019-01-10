@@ -16,9 +16,9 @@ export class SurveyComponent implements OnInit {
   constructor() { 
     //this.category=`<select><option value=0>category</option></select>`;
     this.category=['category','',''];
-    this.user=['category','',''];
-    this.topic=['category','',''];
-    this.location=['category','',''];
+    this.user=['user','',''];
+    this.topic=['topic','',''];
+    this.location=['location','',''];
    this.test=`<h1>hollaradio</h1>`;
   }
 
