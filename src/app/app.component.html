@@ -1,5 +1,39 @@
 <!--The content below is only a placeholder and can be replaced.-->
-<h6>Time Tracking Mockup a0119</h6>  
-  <p>{{debug}}</p>
-  <p>{{databaseDump}}</p>
+<h6>Time Tracking Mockup a0119</h6> 
+<h6>{{debug}}</h6>
+<div class="nav"><div id="logo"><i class="material-icons">local_cafe</i></div>
+     <!-- obsolete 
+     <div id="burger">&#9776;
+        <div class="submenu">
+           <p><a routerLink="/survey">report</a></p> 
+           <p><a routerLink="/timetracking">ticket</a></p>
+           <p><a routerLink="/">login</a></p>
+           <p><a routerLink="/logout">logout</a></p> 
+        </div>
+      </div>  
+   -->
+   <button mat-icon-button [matMenuTriggerFor]="menu">
+      <mat-icon>menu</mat-icon>  
+   </button>
+   <mat-menu #menu id="matSubmenu">
+     <div class="orangeWrapper">
+     <button mat-menu-item routerLink="/survey">
+        <mat-icon>dashboard</mat-icon>
+        <span>report</span>
+     </button>   
+     <button mat-menu-item routerLink="/timetracking">
+       <mat-icon>book</mat-icon>
+       <span>ticket</span>
+     </button>   
+     <button mat-menu-item routerLink="/logout">
+       <mat-icon>exit_to_app</mat-icon>
+       <span>logOut</span>
+     </button>   
+     <button mat-menu-item routerLink="/login">
+       <mat-icon>account_box</mat-icon>
+       <span>logIn</span>
+      </button>   
+   </div><!-- orangeWrapper -->   
+   </mat-menu>   
+</div>   
 <router-outlet></router-outlet>

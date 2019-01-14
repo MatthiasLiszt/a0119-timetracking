@@ -1,23 +1,22 @@
 
-<!--p>database {{databaseDump}}</p-->
-<!--p>database {{database.database.topic[0]}}</p-->
 
-<form id="timetracking" action="/process" method="GET">
-   <select name='topic'>
+<!--form id="timetracking" action="/process" method="GET" -->
+<form #ttform="ngForm" id="timetracking" (ngSubmit)="onSubmit(ttform);" >
+   <select name='topic' ngModel #topic="ngModel">
      <option *ngFor="let topic of database.database.topic;let i = index;" [value]="i" >
        {{topic}} 
      </option>  
    </select>
-   <input value="{{location}}" name="location" required>   
-   <select name='category'>
+   <input value="{{location}}" name="location" ngModel required #location="ngModel">   
+   <select name='category' ngModel #category="ngModel">
       <option *ngFor="let category of database.database.category;let i = index;" [value]="i" >
           {{category}} 
         </option>  
    </select>
-   <p>
-      Start <input type="datetime" name="start" required>
-      End <input type="datetime" name="end" required>
-   </p>
+   
+      <p>Start <input type="datetime-local" name="start" ngModel required #start="ngModel"></p>
+      <p>End <input type="datetime-local" name="end" ngModel required #end="ngModel"></p>
+   
    <!-- color="basic" , primary, accent , ...-->
    <button mat-raised-button color="basic">add report</button>
    <button mat-raised-button type="submit" color="primary">submit</button>

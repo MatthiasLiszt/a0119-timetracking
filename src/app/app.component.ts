@@ -13,30 +13,53 @@ export class AppComponent implements OnInit{
   debug: String;
 
   constructor(){
-   this.databaseDump=JSON.stringify(this.database); 
+   this.databaseDump=JSON.stringify(this.database);
+   //alert(this.databaseDump); 
   }
 
   processGetRequest(): boolean{
    let url=window.location.href; 
 
-   let topic=parseInt(this.getArgument('topic',url)); 
-   let category=parseInt(this.getArgument('category',url)); 
-   //let start=this.datetimeToTimestamp(this.getArgument('start',url)); 
-   let start=0;
-   //let start=this.getArgument('start',url); 
-   //let end=this.datetimeToTimestamp(this.getArgument('end',url)); 
-   let end=3600000;
-   let track={"topic": topic,"location": 0,"category": category, "start": start, "end": end, "report": "..."};
+   let topic=Number(this.getArgument('topic',url)); 
+   let category=Number(this.getArgument('category',url));
+   let location=this.getArgument('location',url); 
+   let locationValue=this.getLocationValue(location);
+   //let locationValue=0.0;
+   
+   let start=this.datetimeToTimestamp(this.getArgument('start',url)); 
+   let end=this.datetimeToTimestamp(this.getArgument('end',url)); 
+   
+   //alert(location+" "+locationValue);
+   let track={"user": 1.0,"topic": topic,"location": locationValue,"category": category, "start": start, "end": end, "report": "..."};
    this.database.tracks.push(track);
    
    return true; 
   }
 
-  datetimeToTimestamp(datetime: string): Number{
-    // supported format 02/13/2009 23:31:30
-    return Date.parse(datetime.replace("%20"," ").replace("%2F","/").replace("%2F","/"));
+  processFormRequest(topic,category,location,Start,End,user=1.0){
+    let start=this.datetimeToTimestamp(Start); 
+    let end=this.datetimeToTimestamp(End);  
+    let locationValue=this.getLocationValue(location);
+    let track={"user": user,"topic": topic,"location": locationValue,"category": category, "start": start, "end": end, "report": "..."};
+    this.database.tracks.push(track);
+
+    this.databaseDump=JSON.stringify(this.database);
+    alert(this.databaseDump); 
   }
 
+  datetimeToTimestamp(datetime: string): number{
+    
+    return Date.parse(datetime.replace("T"," "));
+  }
+
+  getLocationValue(arg): number{
+   let x;
+   this.database.location.map((l,i)=>{
+                                      if(l==arg) 
+                                       {x=i;}
+                                     }); 
+   return x;
+  }
   getArgument(arg,url): string{
    let v=url.split(arg+"=");
    let x=v[1].split('&');
@@ -53,6 +76,9 @@ export class AppComponent implements OnInit{
      {this.debug="app component idle";}
   }
 
+  greetingsFromAppComponent(){
+   alert('greetings from app component'); 
+  }
   /*
   progState='logout'; //essential: switches between secreens
                      //possible states: login, timetracking, survey, logout
