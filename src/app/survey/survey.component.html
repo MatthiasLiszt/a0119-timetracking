@@ -1,31 +1,46 @@
+
 <div id="report">
    <p>Date <input type="date" ></p>
    <div id="reportList">
-
+      <div *ngFor="let entry of reportlist;" >
+        <p>entry: {{entry[0]}}</p>
+        <p><strong>{{entry[1]}}</strong></p>  
+      
+        <p>{{entry[2]}}</p>
+        <p>{{entry[3]}}</p>
+        <p>{{entry[4]}}</p>
+        <p>{{entry[5]}}</p>
+      </div>    
+        <!--p>{{entry.start}} - {{entry.end}}</p-->
    </div>
    <div id="reportFilter">
       <p>
-          <select>
-              <option value=0>{{category[0]}}</option>
-              <option value=1></option>
-              <option value=2></option>
+          <select (change)="setCategoryFilter($event.target.value)">
+              <option value=999>category</option>
+              <option *ngFor="let category of database.database.category;let i = index;" [value]="i">
+               {{category}}   
+              </option>
+              
           </select>
           <select>
-              <option value=0>{{user[0]}}</option>
-              <option value=1></option>
-              <option value=2></option>
+              <option value=999>user</option>
+              <option *ngFor="let user of database.database.user;let i = index;" [value]="i">
+                    {{user}}   
+              </option>
           </select>
         </p>
         <p>  
           <select>
-              <option value=0>{{topic[0]}}</option>
-              <option value=1></option>
-              <option value=2></option>
+              <option value=999>topic</option>
+              <option *ngFor="let topic of database.database.topic;let i = index;" [value]="i">
+                    {{topic}}   
+              </option>
           </select>
           <select>
-              <option value=0>{{location[0]}}</option>
-              <option value=1></option>
-              <option value=2></option>
+              <option value=999>location</option>
+              <option *ngFor="let location of database.database.location;let i = index;" [value]="i">
+                    {{location}}   
+              </option>
           </select>
       </p>
       

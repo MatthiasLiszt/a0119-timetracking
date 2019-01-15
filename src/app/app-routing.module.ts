@@ -13,8 +13,8 @@ const routes: Routes = [
   { path: '', component: LoginComponent },
   { path: 'logcheck', component: LogcheckComponent },
   { path: 'timetracking', component: TimeTrackingComponent },
-  { path: 'survey', component: SurveyComponent}
-  //{ path: '', component: AppComponent }
+  { path: 'survey', component: SurveyComponent},
+  { path: 'process', component: AppComponent }
 
 ];
 

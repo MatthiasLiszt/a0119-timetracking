@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { AppComponent } from '../app.component';
 
 @Component({
   selector: 'app-time-tracking',
@@ -8,9 +9,17 @@ import { Component, OnInit } from '@angular/core';
 export class TimeTrackingComponent implements OnInit {
   
   location: String;
-  constructor() { this.location="somewhere predefined";}
+  database;
+  databaseDump;
+
+  constructor(parentComponent: AppComponent) 
+    { this.location="somewhere predefined";
+      this.database=parentComponent;
+      this.databaseDump=JSON.stringify(this.database);
+    }
 
   ngOnInit() {
+    
   }
 
 }
