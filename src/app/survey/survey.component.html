@@ -19,14 +19,14 @@
       <p>
           <select (change)="setCategoryFilter($event.target.value)">
               <option value=999>category</option>
-              <option *ngFor="let category of database.database.category;let i = index;" [value]="i">
+              <option *ngFor="let category of database.category;let i = index;" [value]="i">
                {{category}}   
               </option>
               
           </select>
           <select (change)="setUserFilter($event.target.value)" >
               <option value=999>user</option>
-              <option *ngFor="let user of database.database.user;let i = index;" [value]="i">
+              <option *ngFor="let user of database.user;let i = index;" [value]="i">
                     {{user}}   
               </option>
           </select>
@@ -34,13 +34,13 @@
         <p>  
           <select (change)="setTopicFilter($event.target.value)">
               <option value=999>topic</option>
-              <option *ngFor="let topic of database.database.topic;let i = index;" [value]="i">
+              <option *ngFor="let topic of database.topic;let i = index;" [value]="i">
                     {{topic}}   
               </option>
           </select>
           <select (change)="setLocationFilter($event.target.value)">
               <option value=999>location</option>
-              <option *ngFor="let location of database.database.location;let i = index;" [value]="i">
+              <option *ngFor="let location of database.location;let i = index;" [value]="i">
                     {{location}}   
               </option>
           </select>

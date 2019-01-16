@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { AppComponent } from '../app.component';
 import {NgForm} from '@angular/forms';
 import { FormGroup } from '@angular/forms';
+import {DatabaseService} from '../database.service';
 
 @Component({
   selector: 'app-time-tracking',
@@ -12,15 +13,16 @@ export class TimeTrackingComponent implements OnInit {
   
   location: String;
   database;
-  databaseDump;
-  parent;
   
-  constructor(parentComponent: AppComponent) 
+  //parent;
+  
+  constructor(private databaseService: DatabaseService/*parentComponent: AppComponent*/) 
     { this.location="Wien";
-      this.parent=this.database=parentComponent;
-      this.databaseDump=JSON.stringify(this.database);
+      //this.parent=this.database=parentComponent;
+      this.database=this.databaseService.getData();
     }
-
+  
+  /*
   onSubmit(ttform: NgForm){
     //alert(JSON.stringify(ttform));
     //alert(ttform.value.topic);
@@ -34,6 +36,10 @@ export class TimeTrackingComponent implements OnInit {
 
     this.parent.processFormRequest(topic,category,location,start,end);
    }
+  */
+ onSubmit(ttform: NgForm){
+
+ } 
 
   ngOnInit() {
     

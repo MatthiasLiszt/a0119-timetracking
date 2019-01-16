@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { AppComponent } from '../app.component';
 import { listLazyRoutes } from '@angular/compiler/src/aot/lazy_routes';
+import { DatabaseService } from '../database.service';
 
 @Component({
   selector: 'app-survey',
@@ -20,8 +21,9 @@ export class SurveyComponent implements OnInit {
   userFilter;
   datetimeFilter;
 
-  constructor(parentComponent: AppComponent) { 
-    this.database=parentComponent; 
+  constructor(private databaseService: DatabaseService/*parentComponent: AppComponent*/) { 
+    //this.database=parentComponent; 
+    this.database=this.databaseService.getData();
     this.offFilter=999;
     let off=this.offFilter;
     this.categoryFilter=off;
@@ -33,6 +35,7 @@ export class SurveyComponent implements OnInit {
  
   ngOnInit() {
    let off=this.offFilter;
+   alert(JSON.stringify(this.database.tracks));
    this.reportlist=this.generateReportList(off,off,off,off,off); 
   }
 
@@ -71,19 +74,15 @@ export class SurveyComponent implements OnInit {
   }
 
   generateReportList(Ctgy,User,Topic,Place,Datetime){ 
-   //let tracks=this.database.tracks;
    let list=[];
-   //alert('param '+Ctgy+' '+User+' '+Topic+' '+Place);
-   //alert('generate report');                        
-   //alert(this.database.database.tracks[0].user);
-   //alert(this.database.database.tracks.length);
-   for(let i=0;i<this.database.database.tracks.length;++i)
-    {let e=this.database.database.tracks[i];
+   
+   for(let i=0;i<this.database.tracks.length;++i)
+    {let e=this.database.tracks[i];
      
-     let user=this.database.database.user[e.user];
-     let category=this.database.database.category[e.category];
-     let location=this.database.database.location[e.location];
-     let topic=this.database.database.topic[e.topic];
+     let user=this.database.user[e.user];
+     let category=this.database.category[e.category];
+     let location=this.database.location[e.location];
+     let topic=this.database.topic[e.topic];
      let entryStart=this.getDatetimeString(e.start);
      let entryEnd=this.getDatetimeString(e.end);
      
@@ -98,26 +97,15 @@ export class SurveyComponent implements OnInit {
      let topicFullFilled=(Topic==e.topic)||(Topic==off);
      let datetimeFullFilled=(Datetime==day)||(Datetime==off);
      
-     //alert(Datetime+"-"+day);
-
+   
      let c=catFullFilled.toString();
      let u=userFullFilled.toString();
      let l=locationFullFilled.toString();
      let t=topicFullFilled.toString(); 
-     //alert('filter '+c+u+l+t);
-     if(catFullFilled&&userFullFilled&&locationFullFilled&&topicFullFilled/*&&datetimeFullFilled*/)
+     if(catFullFilled&&userFullFilled&&locationFullFilled&&topicFullFilled&&datetimeFullFilled)
       {list.push(readableEntry);}
-     else
-      {/*alert('entry not matching ctgy '+Ctgy+' ...');*/}      
-    } 
-   /*
-   this.database.database.tracks.map(function(e,i){let entry={entry: i, user: e.user, category: e.category, 
-                                       location: e.location, topic: e.topic, 
-                                       report: e.report};
-                            list.push(entry);
-                           });
-    */                                              
-   
+     
+    }
    
    return list;
   } 

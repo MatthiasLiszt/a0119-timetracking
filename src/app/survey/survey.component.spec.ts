@@ -22,4 +22,9 @@ describe('SurveyComponent', () => {
   it('should create', () => {
     expect(component).toBeTruthy();
   });
+
+  it('should return a JSON',() => {
+    let y=(typeof component.database === 'object');
+    expect(y).toBe(true);
+  });
 });
