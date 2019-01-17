@@ -1,4 +1,54 @@
-nav
+.nav
+  background-color: orange
+  width: 100vw
+  display: flex
+  flex-direction: row
+  //padding-right: 3em
+  //padding-left: 1em
+  //display: inline
+  padding-top: 0.5em
+  padding-bottom: 0.5em
   a
    text-decoration: none
-   
+
+
+#burger
+  //positon: absolute
+  //left: 2em
+  display: inline
+  width: 50%
+  text-align: right
+  //background-color: lightgreen
+  height: 100%
+
+#logo
+  //positon: absolute
+  //right: 1em
+  display: inline
+  width: 40%
+  padding-left: 2em
+  text-align: left
+  //background-color: green
+  height: 100%
+
+.orangeWrapper
+  background-color: orange
+
+.nav .submenu
+  display: none
+  //width: 15vw
+  
+#burger:hover
+  //background-color: yellow
+
+#burger:hover > .submenu
+  display: block  
+
+.submenu a:hover
+  background-color: blue
+  color: orange
+
+.nav button
+  position: absolute
+  right: 1em
+
