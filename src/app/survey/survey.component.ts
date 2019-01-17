@@ -35,7 +35,7 @@ export class SurveyComponent implements OnInit {
  
   ngOnInit() {
    let off=this.offFilter;
-   alert(JSON.stringify(this.database.tracks));
+   //alert(JSON.stringify(this.database.tracks));
    this.reportlist=this.generateReportList(off,off,off,off,off); 
   }
 

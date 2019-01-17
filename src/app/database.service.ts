@@ -1,18 +1,20 @@
 import { Injectable } from '@angular/core';
 import mockup from '../assets/mockup.json';
+import logData from '../assets/logdata.json';
 
 @Injectable({
   providedIn: 'root'
 })
 export class DatabaseService {
-  
-  database: Object;
-
+   
   constructor() { }
 
   getData(){
-   this.database=mockup;
    return mockup;
+  }
+
+  getLogData(){
+   return logData;
   }
 
 }

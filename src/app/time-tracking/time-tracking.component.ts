@@ -38,7 +38,7 @@ export class TimeTrackingComponent implements OnInit {
    }
   */
  onSubmit(ttform: NgForm){
-
+   //let topic=ttform.value.topic;
  } 
 
   ngOnInit() {
