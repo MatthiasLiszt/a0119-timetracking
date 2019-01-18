@@ -39,7 +39,7 @@ export class LoginComponent implements OnInit {
     this.logData.data.map(function(x){if(x.loginHash==logHash)
                                   {logFound=true;
                                    userNumber=x.userNumber;
-                                   alert(x.loginHash);
+                                   //alert(x.loginHash);
                                   }
                                 });
     if(logFound)
@@ -48,14 +48,24 @@ export class LoginComponent implements OnInit {
      {return null;} 
    }
 
+  
+   errorMessageHandler(error,logdata): string{
+    let message: string; 
+    if(logdata.length>0)
+     {if(error === null)
+       {message=this.errorMessage="wrong username or password";}
+      else
+       {message=this.errorMessage="login successfull";} 
+     }
+    else
+     {message=this.errorMessage="Sorry the service is currently not available";}   
+    return message; 
+   }
+
   onSubmit(loginForm: NgForm){
-   
    let logHash = loginForm.value.logname+loginForm.value.logpw;
-   let error=this.checkLogin(logHash);
+   this.errorMessageHandler(this.checkLogin(logHash),this.logData.data);
    
-   if(error === null)
-    {this.errorMessage="username or password not found";}
-   else
-    {this.errorMessage="login successfull";} 
+   
   } 
 }

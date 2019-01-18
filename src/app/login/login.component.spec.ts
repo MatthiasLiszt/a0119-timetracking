@@ -27,4 +27,17 @@ describe('LoginComponent', () => {
      
      expect(component.onSubmit).toHaveBeenCalled();
   }); 
+
+  it('should login yotaka', () => {
+    expect(component.checkLogin('yotaka1234')).toEqual(0);
+  });
+
+  it('should not find nor login jackson', () => {
+    expect(component.checkLogin('jackson007')).toEqual(null);
+  });
+
+  it('should show error message that service is not available', () => {
+    expect(component.errorMessageHandler('none',0)).toEqual('Sorry the service is currently not available');
+  });
+  
 });

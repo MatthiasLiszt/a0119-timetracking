@@ -3,13 +3,13 @@
 <!--form id="timetracking" action="/process" method="GET" -->
 <form #ttform="ngForm" id="timetracking" (ngSubmit)="onSubmit(ttform);" >
    <select name='topic' ngModel #topic="ngModel">
-     <option *ngFor="let topic of database.database.topic;let i = index;" [value]="i" >
+     <option *ngFor="let topic of database.topic;let i = index;" [value]="i" >
        {{topic}} 
      </option>  
    </select>
    <input value="{{location}}" name="location" ngModel required #location="ngModel">   
    <select name='category' ngModel #category="ngModel">
-      <option *ngFor="let category of database.database.category;let i = index;" [value]="i" >
+      <option *ngFor="let category of database.category;let i = index;" [value]="i" >
           {{category}} 
         </option>  
    </select>
