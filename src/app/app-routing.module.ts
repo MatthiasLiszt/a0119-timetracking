@@ -14,8 +14,8 @@ const routes: Routes = [
   { path: 'logcheck', component: LogcheckComponent },
   { path: 'timetracking', component: TimeTrackingComponent },
   { path: 'survey', component: SurveyComponent},
-  { path: 'process', component: AppComponent }
-
+  { path: 'process', component: AppComponent },
+  { path: 'logout', component: LogoutComponent}
 ];
 
 @NgModule({
