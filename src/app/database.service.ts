@@ -2,6 +2,7 @@ import { Injectable } from '@angular/core';
 import mockup from '../assets/mockup.json';
 import logData from '../assets/logdata.json';
 
+
 @Injectable({
   providedIn: 'root'
 })
@@ -21,25 +22,27 @@ export class DatabaseService {
    return logData;
   }
 
-  createTimeRecord(topic,category,location,Start,End,user=1.0){
+  createTimeRecord(topic: number,category,location,Start,End,user=1.0){
     let start=this.datetimeToTimestamp(Start); 
     let end=this.datetimeToTimestamp(End);  
     let locationValue=this.getLocationValue(location);
     let track={"user": user,"topic": topic,"location": locationValue,"category": category, "start": start, "end": end, "report": "..."};
     this.database.tracks.push(track); 
-
+    return {input: track, httpCode: 200, output: this.database.tracks[this.database.tracks.length] };  
   }
 
-  readTimeRecord(){
-
+  readTimeRecord(entry: number){
+   return {input: entry, httpCode: 200 ,output: this.database.tracks[entry]};
   }
 
-  updateTimeRecord(){
-
+  updateTimeRecord(entry: number){
+    return {input: entry, httpCode: 200 , output: this.database.tracks[entry] };
   }
 
-  deleteTimeRecord(){
-
+  deleteTimeRecord(entry: number){
+   //if the user number < 0 then it is not a valid user and the entry is regarded as deleted 
+   this.database.tracks[entry].user=-1;
+   return {input: entry, httpCode: 200 ,output: this.database.tracks[entry]};
   }
 
   datetimeToTimestamp(datetime: string): number{

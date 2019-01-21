@@ -97,12 +97,9 @@ export class SurveyComponent implements OnInit {
      let topicFullFilled=(Topic==e.topic)||(Topic==off);
      let datetimeFullFilled=(Datetime==day)||(Datetime==off);
      
-   
-     let c=catFullFilled.toString();
-     let u=userFullFilled.toString();
-     let l=locationFullFilled.toString();
-     let t=topicFullFilled.toString(); 
-     if(catFullFilled&&userFullFilled&&locationFullFilled&&topicFullFilled&&datetimeFullFilled)
+     let userValid=(e.user>=0);
+
+     if(catFullFilled&&userFullFilled&&locationFullFilled&&topicFullFilled&&datetimeFullFilled&&userValid)
       {list.push(readableEntry);}
      
     }
