@@ -1,0 +1,21 @@
+Meeting 210119
+
+kurze feature branches - übersichtlich
+
+BDD - Konzept 
+//Given - //When - //Then
+
+Component-Tests(DOM-Elemente testen) mit Jasmine 
+vorhanden - disabled - valid - usw. 
+
+e2e - Tests - Konzept (Integrationstest Zielsetzungen)
+(kompletter Verlauf von Anfang bis Ende wie im Browser)
+
+accessability-tests
+
+Mocks mit Jasmine 
+.createSpy und dann Werte für mocks setzen 
+
+alles Typisieren!!!
+mehr Material-Design-Komponenten
+

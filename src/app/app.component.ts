@@ -79,27 +79,5 @@ export class AppComponent implements OnInit{
   greetingsFromAppComponent(){
    alert('greetings from app component'); 
   }
-  /*
-  progState='logout'; //essential: switches between secreens
-                     //possible states: login, timetracking, survey, logout
-  login="LogIn";
-
- changeLoginState(){
-  if(this.progState!='login') 
-   {this.progState='logout';
-    this.login="LogOut";
-   }
-  else
-  {this.progState='login';
-   this.login="LogIn";
-  }
- }
-
- logInOutRedirect(){
-   if(this.progState!="login") 
-    {window.location.href="/login";}
-   else
-    {window.location.href="/";} 
- }
- */                   
+  
 }

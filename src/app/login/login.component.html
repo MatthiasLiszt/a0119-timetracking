@@ -1,12 +1,13 @@
+<!--p> login works </p-->
 
-
-<div class="container">
-  <form id="login" method="GET" action="/logcheck">
+  <form #loginForm="ngForm" id="login" (ngSubmit)="onSubmit(loginForm)">
   
-    <input placeholder="Name" type="text" name="logname" required>
-    <input type="password" placeholder="password" name="logpw" required>
+    <input placeholder="Name" type="text" name="logname" ngModel required #logname="ngModel">
+    <input type="password" placeholder="password" name="logpw" ngModel required #logpw="ngModel">
   
     <button type="submit">submit</button>
   </form>
-</div>
+  <div id="errorMessages">
+    {{errorMessage}}
+  </div>
 

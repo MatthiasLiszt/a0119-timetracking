@@ -13,31 +13,23 @@ export class TimeTrackingComponent implements OnInit {
   
   location: String;
   database;
+  crud;
   
   //parent;
   
-  constructor(private databaseService: DatabaseService/*parentComponent: AppComponent*/) 
+  constructor(private databaseService: DatabaseService) 
     { this.location="Wien";
-      //this.parent=this.database=parentComponent;
       this.database=this.databaseService.getData();
+      this.crud=this.databaseService;
     }
   
-  /*
-  onSubmit(ttform: NgForm){
-    //alert(JSON.stringify(ttform));
-    //alert(ttform.value.topic);
-    //this.parent.greetingsFromAppComponent();
-    
-    let topic=ttform.value.topic;
-    let category=ttform.value.category;
-    let location=ttform.value.location;
-    let start=ttform.value.start;
-    let end=ttform.value.end;
-
-    this.parent.processFormRequest(topic,category,location,start,end);
-   }
-  */
+  
  onSubmit(ttform: NgForm){
+  let topic=ttform.value.topic;
+  let category=ttform.value.category;
+  let start=ttform.value.start;
+  let end=ttform.value.end;
+  this.crud.createTimeRecord(topic,category,location,start,end);
 
  } 
 
