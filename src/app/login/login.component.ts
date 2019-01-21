@@ -46,7 +46,8 @@ export class LoginComponent implements OnInit {
                                   }
                                 });
     if(logFound)
-     {localStorage.setItem('timetrackingapp', JSON.stringify(userNumber));
+     {localStorage.setItem('timetrackingapp', 'something');
+      localStorage.setItem('timetrackinguser',JSON.stringify(userNumber));
       return userNumber;}
     else
      {return null;} 

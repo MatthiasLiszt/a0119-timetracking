@@ -14,8 +14,8 @@ import { LogcheckComponent } from './logcheck/logcheck.component';
 const routes: Routes = [
   { path: 'login', component: LoginComponent },
   { path: 'logcheck', component: LogcheckComponent },
-  { path: 'timetracking', component: TimeTrackingComponent,canActivate: [Authguard]  },
-  { path: 'survey', component: SurveyComponent, canActivate: [Authguard] },
+  { path: 'timetracking', component: TimeTrackingComponent,/*canActivate: [Authguard]*/  },
+  { path: 'survey', component: SurveyComponent, /*canActivate: [Authguard]*/ },
   { path: 'process', component: AppComponent },
   { path: 'logout', component: LogoutComponent}
 ];

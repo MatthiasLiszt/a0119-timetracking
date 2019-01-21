@@ -12,6 +12,10 @@ export class AuthService {
     const token = localStorage.getItem('timetrackingapp');
     // Check whether the token is expired and return
     // true or false
-    return !this.jwtHelper.isTokenExpired(token);
+    //return !this.jwtHelper.isTokenExpired(token); // somehow not working as expected
+    if(token === 'something')
+     {alert('valid token'); return true;}
+    else 
+     {alert('false token');return false;} 
   }
 }
