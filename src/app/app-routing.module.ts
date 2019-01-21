@@ -1,5 +1,7 @@
 import { NgModule } from '@angular/core';
-import { Routes, RouterModule } from '@angular/router';
+import { Routes, RouterModule , CanActivate } from '@angular/router';
+
+import {AuthguardService as Authguard } from './authguard.service';
 
 import { LoginComponent } from './login/login.component';
 import { TimeTrackingComponent } from './time-tracking/time-tracking.component';
@@ -12,8 +14,8 @@ import { LogcheckComponent } from './logcheck/logcheck.component';
 const routes: Routes = [
   { path: 'login', component: LoginComponent },
   { path: 'logcheck', component: LogcheckComponent },
-  { path: 'timetracking', component: TimeTrackingComponent },
-  { path: 'survey', component: SurveyComponent},
+  { path: 'timetracking', component: TimeTrackingComponent,canActivate: [Authguard]  },
+  { path: 'survey', component: SurveyComponent, canActivate: [Authguard] },
   { path: 'process', component: AppComponent },
   { path: 'logout', component: LogoutComponent}
 ];

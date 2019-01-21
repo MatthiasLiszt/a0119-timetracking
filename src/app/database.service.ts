@@ -1,6 +1,9 @@
 import { Injectable } from '@angular/core';
 import mockup from '../assets/mockup.json';
 import logData from '../assets/logdata.json';
+import { HttpClient } from '@angular/common/http';
+import { Observable, Subscription } from 'rxjs';
+
 
 
 @Injectable({

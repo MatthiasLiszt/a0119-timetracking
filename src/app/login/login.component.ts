@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import {NgForm} from '@angular/forms';
 import { DatabaseService } from '../database.service';
+//import { AppComponent } from '../app.component';
 
 
 @Component({
@@ -21,10 +22,12 @@ export class LoginComponent implements OnInit {
 
   errorMessage: string;
   logData;
+  
 
   constructor(private databaseService: DatabaseService) { 
    this.logData=this.databaseService.getLogData();
    this.errorMessage="";
+   
   }
 
   ngOnInit() {
@@ -43,7 +46,8 @@ export class LoginComponent implements OnInit {
                                   }
                                 });
     if(logFound)
-     {return userNumber;}
+     {localStorage.setItem('timetrackingapp', JSON.stringify(userNumber));
+      return userNumber;}
     else
      {return null;} 
    }
