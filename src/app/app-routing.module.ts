@@ -17,7 +17,8 @@ const routes: Routes = [
   { path: 'timetracking', component: TimeTrackingComponent,/*canActivate: [Authguard]*/  },
   { path: 'survey', component: SurveyComponent, /*canActivate: [Authguard]*/ },
   { path: 'process', component: AppComponent },
-  { path: 'logout', component: LogoutComponent}
+  { path: 'logout', component: LogoutComponent},
+  { path: 'update/:entry', component: TimeTrackingComponent}
 ];
 
 @NgModule({

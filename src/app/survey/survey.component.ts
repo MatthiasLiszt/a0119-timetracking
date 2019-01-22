@@ -113,6 +113,6 @@ export class SurveyComponent implements OnInit {
   }
 
   updateTimeRecord(entry: number){
-    this.router.navigate(['timetracking']);
+    this.router.navigate(['update',entry]);
   }
 }
