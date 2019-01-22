@@ -20,17 +20,7 @@ export class DatabaseService {
   constructor(private http: HttpClient) { 
    this.database=mockup; 
    this.writeURL="0.0.0.0";
-   
-   /*
-   this.recordCreate.subscribe((value) => this.myValue = value,
-                               (err) => {
-                                         console.log("Got an error!");
-                                         console.error(err);
-                                        },
-                              );
-   */                           
-   
-  
+        
   }
 
   getData(){
@@ -49,6 +39,15 @@ export class DatabaseService {
                                         console.error(err);
                                        },
                              );
+  }
+
+  recordCreateObservable(topic: number,category: number,location: string,Start: string,End: string,user=1.0){
+    this.recordCreate=this.createTimeRecordRemote(topic,category,location,Start,End,user);
+    this.recordCreate.subscribe((value) => this.database = value, 
+                                (err) => {
+                                          console.error(err);   
+                                         },
+                               );
   }
 
   createTimeRecord(topic: number,category: number,location: string,Start: string,End: string,user=1.0){

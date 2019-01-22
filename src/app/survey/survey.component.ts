@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { AppComponent } from '../app.component';
 import { listLazyRoutes } from '@angular/compiler/src/aot/lazy_routes';
 import { DatabaseService } from '../database.service';
+import { Router} from '@angular/router';
 
 @Component({
   selector: 'app-survey',
@@ -21,7 +22,7 @@ export class SurveyComponent implements OnInit {
   userFilter;
   datetimeFilter;
 
-  constructor(private databaseService: DatabaseService/*parentComponent: AppComponent*/) { 
+  constructor(private databaseService: DatabaseService, public router: Router/*parentComponent: AppComponent*/) { 
     //this.database=parentComponent; 
     this.database=this.databaseService.getData();
     this.offFilter=999;
@@ -106,5 +107,12 @@ export class SurveyComponent implements OnInit {
    
    return list;
   } 
+  
+  deleteTimeRecord(entry: number){
+   alert('Are you sure you want to delete entry '+entry);
+  }
 
+  updateTimeRecord(entry: number){
+    this.router.navigate(['timetracking']);
+  }
 }

@@ -3,7 +3,10 @@
    <p>Date <input type="datetime-local" (change)="setDatetimeFilter($event.target.value)"></p>
    <div id="reportList">
       <div *ngFor="let entry of reportlist;" >
-        <p>entry: {{entry[0]}}</p>
+
+        <p>entry: {{entry[0]}}  <button (click)="updateTimeRecord(entry[0])"><mat-icon>autorenew</mat-icon></button>
+                                <button (click)="deleteTimeRecord(entry[0])"><mat-icon>delete_forever</mat-icon></button>
+        </p>
         <p><strong>{{entry[1]}}</strong></p>  
         <p>start {{entry[6]}}</p>
         <p>end {{entry[7]}}</p>

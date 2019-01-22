@@ -11,9 +11,14 @@ describe('DatabaseService', () => {
     expect(service).toBeTruthy();
   });
 
-  it('should return a valid time record or track', () => {
-    
-    expect(myService.readTimeRecord(1)).toBeTruthy();
+  
+  it('should return a valid time record', () => {
+    expect(myService.recordDeleteObservable(1)).toBeTruthy();
   });
+  /*
+  it('should return a valid time record', () => {
+    //expect(myService.deleteTimeRecordRemote(1)).toBe(!undefined);
 
+  });
+  */
 });
