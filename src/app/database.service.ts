@@ -20,7 +20,7 @@ export class DatabaseService {
   constructor(private http: HttpClient) { 
    this.database=mockup; 
    this.writeURL="0.0.0.0";
-   this.recordDelete=this.deleteTimeRecordRemote(entry) ;
+   
    /*
    this.recordCreate.subscribe((value) => this.myValue = value,
                                (err) => {
@@ -29,12 +29,7 @@ export class DatabaseService {
                                         },
                               );
    */                           
-   this.recordDelete.subscribe((value) => this.myValue = value,
-                              (err) => {
-                                        console.log("Got an error!");
-                                        console.error(err);
-                                       },
-                             );
+   
   
   }
 
@@ -44,6 +39,16 @@ export class DatabaseService {
 
   getLogData(){
    return logData;
+  }
+
+  recordDeleteObservable(entry: number){
+    this.recordDelete=this.deleteTimeRecordRemote(entry);
+    this.recordDelete.subscribe((value) => this.database = value,
+                              (err) => {
+                                        console.log("Got an error!");
+                                        console.error(err);
+                                       },
+                             );
   }
 
   createTimeRecord(topic: number,category: number,location: string,Start: string,End: string,user=1.0){
