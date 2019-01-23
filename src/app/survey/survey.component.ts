@@ -2,7 +2,8 @@ import { Component, OnInit } from '@angular/core';
 import { AppComponent } from '../app.component';
 import { listLazyRoutes } from '@angular/compiler/src/aot/lazy_routes';
 import { DatabaseService } from '../database.service';
-import { Router} from '@angular/router';
+import { Router, Activatedroute} from '@angular/router';
+
 
 @Component({
   selector: 'app-survey',
@@ -22,6 +23,7 @@ export class SurveyComponent implements OnInit {
   userFilter: number;
   datetimeFilter: number;
   crud: DatabaseService;
+  refreshed: number;
 
   constructor(private databaseService: DatabaseService, public router: Router/*parentComponent: AppComponent*/) { 
     //this.database=parentComponent; 
@@ -34,6 +36,7 @@ export class SurveyComponent implements OnInit {
     this.topicFilter=off;
     this.locationFilter=off;
     this.datetimeFilter=off;
+    this.refreshed=1;
   }
  
   ngOnInit() {
@@ -113,6 +116,11 @@ export class SurveyComponent implements OnInit {
   deleteTimeRecord(entry: number){
    if(confirm('Are you sure you want to delete entry '+entry+' ?'))
     {this.crud.deleteTimeRecord(entry);
+     ++this.refreshed; 
+     if((this.refreshed%2)==0)
+      {this.router.navigate(['report',this.refreshed]);} //reload page 
+     else
+     {this.router.navigate(['report']);} 
      alert('your entry has been deleted');
     }
    else

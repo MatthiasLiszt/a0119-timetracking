@@ -11,7 +11,7 @@ import { LoginComponent } from './login/login.component';
 import { TimeTrackingComponent } from './time-tracking/time-tracking.component';
 import { SurveyComponent } from './survey/survey.component';
 import { LogoutComponent } from './logout/logout.component';
-import { LogcheckComponent } from './logcheck/logcheck.component';
+
 
 import {MatButtonModule} from '@angular/material';
 import {MatMenuModule} from '@angular/material/menu';
@@ -30,7 +30,7 @@ import { UpdaterecordComponent } from './updaterecord/updaterecord.component';
     TimeTrackingComponent,
     SurveyComponent,
     LogoutComponent,
-    LogcheckComponent,
+    
     UpdaterecordComponent
   ],
   imports: [

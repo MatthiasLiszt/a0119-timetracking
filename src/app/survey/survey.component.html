@@ -2,21 +2,20 @@
 <div id="report">
    <p>Date <input type="datetime-local" (change)="setDatetimeFilter($event.target.value)"></p>
    <div id="reportList">
-      <div *ngFor="let entry of reportlist;" >
-
-        <p id="entryhead">entry: {{entry[0]}}  <button (click)="updateTimeRecord(entry[0])"><mat-icon>autorenew</mat-icon></button>
-                                <button (click)="deleteTimeRecord(entry[0])"><mat-icon>delete_forever</mat-icon></button>
-        </p>
-        <p><strong>{{entry[1]}}</strong></p>  
-        <p>start {{entry[6]}}</p>
-        <p>end {{entry[7]}}</p>
-      
-        <p>{{entry[2]}}</p>
-        <p>{{entry[3]}}</p>
-        <p>{{entry[4]}}</p>
-        <p>{{entry[5]}}</p>
-      </div>    
-        
+      <table> 
+      <tr *ngFor="let entry of reportlist;" >
+            
+        <td>{{entry[0]}}</td>    
+        <td>{{entry[1]}}</td>    
+        <td>{{entry[2]}}</td>    
+        <td>{{entry[3]}}</td>    
+        <td>{{entry[4]}}</td>    
+        <td>{{entry[5]}}</td>    
+        <td class="entryhead"><button (click)="deleteTimeRecord(entry[0])"><mat-icon>delete_forever</mat-icon></button>
+            <button><mat-icon>more_vert</mat-icon></button>
+        </td>
+    </tr>    
+    </table>    
    </div>
    <div id="reportFilter">
       <p>

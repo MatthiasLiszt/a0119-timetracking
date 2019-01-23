@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { AppComponent } from '../app.component';
 import {NgForm} from '@angular/forms';
-import { FormGroup } from '@angular/forms';
+//import { FormGroup, FormBuilder, Validators, FormArray } from '@angular/forms';
 import {DatabaseService} from '../database.service';
 
 @Component({

@@ -19,3 +19,31 @@ Mocks mit Jasmine
 alles Typisieren!!!
 mehr Material-Design-Komponenten
 
+
+Meeting 230119
+
+Fn F2 - ersetzen , Strg P - Datei suchen, Shift Alt F - Formatierung , Strg . hinzufuegen von Code
+
+!!! jedes Ticket genau ein feature-branch !!!
+
+Atlantian - gitFlow noch mal durchlesen
+
+SingleResponsibility Principle durchlesen
+
+happy-security.de .... Unsicherheiten in JavaScript 
+
+dynamic-forms-Api in Angular Doc durchlesen und anwenden
+
+    two way binding statt NgModel
+
+ survey in report Component umbenennen ... 
+ Tabellenform statt bisheriger Anzeige (siehe Skizze)
+ 
+ keine Update-Form
+
+Speichern ohne Click! 
+
+         >>> gezeigt wurde : filtern mit types , Korrekturen im Code 
+                        
+               wireMock is wie der JSON-server (verwendet json file als mock)
+
