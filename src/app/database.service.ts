@@ -31,8 +31,8 @@ export class DatabaseService {
    return logData;
   }
 
-  recordDeleteObservable(entry: number){
-    this.recordDelete=this.deleteTimeRecordRemote(entry);
+  recordDeleteObservable(entry: number,url: string){
+    this.recordDelete=this.deleteTimeRecordRemote(entry,url);
     this.recordDelete.subscribe((value) => this.database = value,
                               (err) => {
                                         console.log("Got an error!");
@@ -41,8 +41,8 @@ export class DatabaseService {
                              );
   }
 
-  recordCreateObservable(topic: number,category: number,location: string,Start: string,End: string,user=1.0){
-    this.recordCreate=this.createTimeRecordRemote(topic,category,location,Start,End,user);
+  recordCreateObservable(topic: number,category: number,location: string,Start: string,End: string,user=1.0,url: string){
+    this.recordCreate=this.createTimeRecordRemote(topic,category,location,Start,End,user,url);
     this.recordCreate.subscribe((value) => this.database = value, 
                                 (err) => {
                                           console.error(err);   
@@ -50,7 +50,7 @@ export class DatabaseService {
                                );
   }
 
-  createTimeRecord(topic: number,category: number,location: string,Start: string,End: string,user=1.0){
+  createTimeRecord(topic: number,category: number,location: string,Start: string,End: string,user=1.0,url: string){
     let start=this.datetimeToTimestamp(Start); 
     let end=this.datetimeToTimestamp(End);  
     let locationValue=this.getLocationValue(location);
@@ -60,9 +60,9 @@ export class DatabaseService {
     return this.database.tracks;
   }
 
-  createTimeRecordRemote(topic: number,category: number,location: string,Start: string,End: string,user=1.0){
-    let data=this.createTimeRecord(topic,category,location,Start,End,user=1.0);
-    return this.http.post(this.writeURL,data);
+  createTimeRecordRemote(topic: number,category: number,location: string,Start: string,End: string,user=1.0,url: string){
+    let data=this.createTimeRecord(topic,category,location,Start,End,user=1.0,url);
+    return this.http.post(url,data);
   }
 
   readTimeRecord(entry: number){
@@ -87,10 +87,10 @@ export class DatabaseService {
    return this.database.tracks[entry];
   }
 
-  deleteTimeRecordRemote(entry: number){
+  deleteTimeRecordRemote(entry: number,url: string){
    this.deleteTimeRecord(entry);
    let data=this.database.tracks;
-   return this.http.post(this.writeURL,data);
+   return this.http.post(url,data);
   }
 
   datetimeToTimestamp(datetime: string): number{

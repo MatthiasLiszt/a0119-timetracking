@@ -11,7 +11,7 @@ import {DatabaseService} from '../database.service';
 })
 export class TimeTrackingComponent implements OnInit {
   
-  location: String;
+  location: string;
   database;
   crud;
   
@@ -29,7 +29,7 @@ export class TimeTrackingComponent implements OnInit {
   let category=ttform.value.category;
   let start=ttform.value.start;
   let end=ttform.value.end;
-  this.crud.createTimeRecord(topic,category,location,start,end);
+  this.crud.createTimeRecord(topic,category,this.location,start,end);
 
  } 
 

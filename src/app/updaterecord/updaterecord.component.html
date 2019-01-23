@@ -1,0 +1,33 @@
+<!--form #udform="ngForm" id="updaterecord" (ngSubmit)="onSubmit(udform);" [formGroup]="updateForm" -->
+<form id="updaterecord" ><!--[formGroup]="updateForm" -->  
+    <select name='topic' >
+      <option *ngFor="let topic of database.topic;let i = index;" [value]="i" >
+        {{topic}} 
+      </option>  
+    </select>
+    <input value="{{location}}" name="location"  required >   
+    <select  name='category' ><!-- formControlName="categoryControl" -->
+      <option *ngFor="let category of database.category;let i = index;" [value]="i">
+         {{category}}
+      </option>  
+      
+    </select>
+    
+       <p>Start <input type="datetime-local" name="start"  required ></p>
+       <p>End <input type="datetime-local" name="end"  required ></p>
+    
+    <!-- color="basic" , primary, accent , ...-->
+    <button mat-raised-button color="basic">add report</button>
+    <button mat-raised-button type="submit" color="primary">submit</button>
+ </form>  
+
+ <!--
+   <ng-container *ngFor="let categories of database.category;let i = index;">
+       <option *ngIf="(i == 2) " [value]="i" selected>
+           {{i}}*{{categories}} 
+       </option>
+       <option *ngIf="(i != 2)  " [value]="i" > 
+        .{{categories}} 
+      </option>  
+     </ng-container> 
+ -->
