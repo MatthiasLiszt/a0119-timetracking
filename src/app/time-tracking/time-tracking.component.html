@@ -1,6 +1,6 @@
 
 
-<!--form id="timetracking" action="/process" method="GET" -->
+
 <form #ttform="ngForm" id="timetracking" (ngSubmit)="onSubmit(ttform);" >
    <select name='topic' ngModel #topic="ngModel">
      <option *ngFor="let topic of database.topic;let i = index;" [value]="i" >

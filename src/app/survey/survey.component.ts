@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { AppComponent } from '../app.component';
 import { listLazyRoutes } from '@angular/compiler/src/aot/lazy_routes';
 import { DatabaseService } from '../database.service';
+import { Router} from '@angular/router';
 
 @Component({
   selector: 'app-survey',
@@ -14,16 +15,18 @@ export class SurveyComponent implements OnInit {
   
   database;
   reportlist;
-  offFilter;
-  categoryFilter;
-  locationFilter;
-  topicFilter;
-  userFilter;
-  datetimeFilter;
+  offFilter: number;
+  categoryFilter: number;
+  locationFilter: number;
+  topicFilter: number;
+  userFilter: number;
+  datetimeFilter: number;
+  crud: DatabaseService;
 
-  constructor(private databaseService: DatabaseService/*parentComponent: AppComponent*/) { 
+  constructor(private databaseService: DatabaseService, public router: Router/*parentComponent: AppComponent*/) { 
     //this.database=parentComponent; 
     this.database=this.databaseService.getData();
+    this.crud=this.databaseService;
     this.offFilter=999;
     let off=this.offFilter;
     this.categoryFilter=off;
@@ -73,7 +76,7 @@ export class SurveyComponent implements OnInit {
    return d.toISOString().replace("T"," ").replace("Z"," ");
   }
 
-  generateReportList(Ctgy,User,Topic,Place,Datetime){ 
+  generateReportList (Ctgy: number,User: number,Topic: number,Place: number,Datetime: number){ 
    let list=[];
    
    for(let i=0;i<this.database.tracks.length;++i)
@@ -106,5 +109,17 @@ export class SurveyComponent implements OnInit {
    
    return list;
   } 
+  
+  deleteTimeRecord(entry: number){
+   if(confirm('Are you sure you want to delete entry '+entry+' ?'))
+    {this.crud.deleteTimeRecord(entry);
+     alert('your entry has been deleted');
+    }
+   else
+    {alert('entry has not been changed');}
+  }
 
+  updateTimeRecord(entry: number){
+    this.router.navigate(['update',entry]);
+  }
 }

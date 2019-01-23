@@ -11,10 +11,12 @@ export class AppComponent implements OnInit{
   database=mockup; //currently links to a json file in ../assets
   databaseDump;
   debug: String;
+  username: string;
 
   constructor(){
    this.databaseDump=JSON.stringify(this.database);
    //alert(this.databaseDump); 
+   this.username="not logged in"
   }
 
   processGetRequest(): boolean{

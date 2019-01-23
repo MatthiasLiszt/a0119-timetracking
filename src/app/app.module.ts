@@ -21,6 +21,7 @@ import {MatTabsModule} from '@angular/material/tabs';
 import {MatSidenavModule} from '@angular/material/sidenav';
 import {MatListModule} from '@angular/material/list';
 import {MatToolbarModule} from '@angular/material/toolbar';
+import { UpdaterecordComponent } from './updaterecord/updaterecord.component';
 
 @NgModule({
   declarations: [
@@ -29,7 +30,8 @@ import {MatToolbarModule} from '@angular/material/toolbar';
     TimeTrackingComponent,
     SurveyComponent,
     LogoutComponent,
-    LogcheckComponent
+    LogcheckComponent,
+    UpdaterecordComponent
   ],
   imports: [
     BrowserModule,

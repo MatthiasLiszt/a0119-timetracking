@@ -3,19 +3,19 @@
 <h6>Time Tracking Mockup a0119</h6> 
 <h6>{{debug}}</h6>
 -->
-<div class="nav"><!--div id="logo"><i class="material-icons">local_cafe</i></div-->
+<div class="nav">
 
     <button mat-icon-button id="logocafe">
      <mat-icon>local_cafe</mat-icon>  
     </button> 
-    
+    <!-- span id="username">{{username}}</span>-->
     <button id="burgermenu" mat-icon-button [matMenuTriggerFor]="menu">
       <mat-icon>menu</mat-icon>  
    </button>
    
    <mat-menu #menu id="matSubmenu">
      <div class="orangeWrapper">
-     <button mat-menu-item routerLink="/survey">
+     <button mat-menu-item routerLink="/report">
         <mat-icon>dashboard</mat-icon>
         <span>report</span>
      </button>   
