@@ -3,6 +3,8 @@ import { AppComponent } from '../app.component';
 import {NgForm} from '@angular/forms';
 //import { FormGroup, FormBuilder } from '@angular/forms';
 import {DatabaseService} from '../database.service';
+import { ActivatedRoute } from '@angular/router';
+import 'rxjs';
 
 @Component({
   selector: 'app-updaterecord',
@@ -17,7 +19,9 @@ export class UpdaterecordComponent implements OnInit {
   entry: number;
   //updateForm: FormGroup;
 
-  constructor(private databaseService: DatabaseService,/*private fb: FormBuilder*/) {
+  sortedTopic;
+
+  constructor(private databaseService: DatabaseService,private route: ActivatedRoute/*private fb: FormBuilder*/) {
     
     this.database=this.databaseService.getData();
     this.crud=this.databaseService;
@@ -41,6 +45,18 @@ export class UpdaterecordComponent implements OnInit {
 
   ngOnInit() {
    //this.updateForm=this.fb.group({categoryControl: ['consulting']});
+   this.route.params   
+      .subscribe(p => {
+         //alert(JSON.stringify(p));
+         this.entry=parseInt(p.entry);
+         //alert(this.entry);
+      });
+
+      
   }
 
+  sortTopics(entry: number,dbase){
+   let sorted=[];
+   dbase.tracks[entry].topic;
+  }
 }

@@ -15,16 +15,18 @@ export class SurveyComponent implements OnInit {
   
   database;
   reportlist;
-  offFilter;
-  categoryFilter;
-  locationFilter;
-  topicFilter;
-  userFilter;
-  datetimeFilter;
+  offFilter: number;
+  categoryFilter: number;
+  locationFilter: number;
+  topicFilter: number;
+  userFilter: number;
+  datetimeFilter: number;
+  crud: DatabaseService;
 
   constructor(private databaseService: DatabaseService, public router: Router/*parentComponent: AppComponent*/) { 
     //this.database=parentComponent; 
     this.database=this.databaseService.getData();
+    this.crud=this.databaseService;
     this.offFilter=999;
     let off=this.offFilter;
     this.categoryFilter=off;
@@ -74,7 +76,7 @@ export class SurveyComponent implements OnInit {
    return d.toISOString().replace("T"," ").replace("Z"," ");
   }
 
-  generateReportList(Ctgy,User,Topic,Place,Datetime){ 
+  generateReportList (Ctgy: number,User: number,Topic: number,Place: number,Datetime: number){ 
    let list=[];
    
    for(let i=0;i<this.database.tracks.length;++i)
@@ -109,7 +111,12 @@ export class SurveyComponent implements OnInit {
   } 
   
   deleteTimeRecord(entry: number){
-   alert('Are you sure you want to delete entry '+entry);
+   if(confirm('Are you sure you want to delete entry '+entry+' ?'))
+    {this.crud.deleteTimeRecord(entry);
+     alert('your entry has been deleted');
+    }
+   else
+    {alert('entry has not been changed');}
   }
 
   updateTimeRecord(entry: number){
