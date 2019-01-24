@@ -2,8 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { AppComponent } from '../app.component';
 import { listLazyRoutes } from '@angular/compiler/src/aot/lazy_routes';
 import { DatabaseService } from '../database.service';
-import { Router, ActivatedRoute } from '@angular/router';
-import { ValueConverter } from '@angular/compiler/src/render3/view/template';
+import { Router } from '@angular/router';
 
 
 @Component({

@@ -1,10 +1,12 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 
 import { SurveyComponent } from './survey.component';
+import { DatabaseService } from '../database.service';
 
 describe('SurveyComponent', () => {
   let component: SurveyComponent;
   let fixture: ComponentFixture<SurveyComponent>;
+  const service: DatabaseService = TestBed.get(DatabaseService);
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
@@ -18,25 +20,14 @@ describe('SurveyComponent', () => {
     component = fixture.componentInstance;
     fixture.detectChanges();
   });
-/*
-  it('should create', () => {
+
+  it('should create the component', () => {
     expect(component).toBeTruthy();
   });
 
-  it('should return a JSON',() => {
-    let y=(typeof component.database === 'object');
-    expect(y).toBe(true);
+  it('should ',()=>{
+    expect(1).toBe(1);
   });
- */
-  
-
-//const mockService = <DatabaseService> {getMock: () => mockDatabase};
-
-  /*
-  it('should have mocks when SurveyComponent is created', () => {
-   // Pass the mock to the constructor as the Angular injector would
-   const component = new SurveyComponent(mockService);
-   expect(component.database.length).toEqual(mockService.length);
-  });
-  */
+ 
+ 
 });
