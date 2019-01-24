@@ -15,6 +15,7 @@ const routes: Routes = [
   { path: 'login', component: LoginComponent },
   { path: 'timetracking', component: TimeTrackingComponent,/*canActivate: [Authguard]*/  },
   { path: 'report', component: SurveyComponent, /*canActivate: [Authguard]*/ },
+  { path: 'report/:refreshed', component: SurveyComponent, /*canActivate: [Authguard]*/ },
   { path: 'logout', component: LogoutComponent},
   { path: 'update/:entry', component: UpdaterecordComponent}
  
