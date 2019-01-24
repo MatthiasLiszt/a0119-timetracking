@@ -2,7 +2,8 @@ import { Component, OnInit } from '@angular/core';
 import { AppComponent } from '../app.component';
 import { listLazyRoutes } from '@angular/compiler/src/aot/lazy_routes';
 import { DatabaseService } from '../database.service';
-import { Router, Activatedroute} from '@angular/router';
+import { Router, Activatedroute, ActivatedRoute} from '@angular/router';
+import { ValueConverter } from '@angular/compiler/src/render3/view/template';
 
 
 @Component({
@@ -76,7 +77,12 @@ export class SurveyComponent implements OnInit {
   getDatetimeString(v): string{
    let d=new Date(v);
 
-   return d.toISOString().replace("T"," ").replace("Z"," ");
+   //return d.toISOString().replace("T"," ").replace("Z"," ");
+   let dateOnly=d.toISOString().split("T")[0];
+   let rest=d.toISOString().split("T")[1];
+   let hour=rest.split(":")[0];
+   let minutes=rest.split(":")[1];
+   return dateOnly+"T"+hour+":"+minutes;
   }
 
   generateReportList (Ctgy: number,User: number,Topic: number,Place: number,Datetime: number){ 
@@ -127,7 +133,45 @@ export class SurveyComponent implements OnInit {
     {alert('entry has not been changed');}
   }
 
+  getIndexFromArray(field,arg: string){
+   let value: number;
+   field.map((x,i) => {if(x==arg)value=i;}); 
+   return value;
+  }
+
   updateTimeRecord(entry: number){
     this.router.navigate(['update',entry]);
   }
+
+  onUserChange(entry: number,value: number){
+   //alert("e "+entry+" "+value);
+   this.database.tracks[entry].user=value;
+  }
+
+  onCategoryChange(entry: number,value: number){
+    
+    this.database.tracks[entry].category=value;
+   }
+   onLocationChange(entry: number,value: number){
+    
+    this.database.tracks[entry].location=value;
+   }
+   onTopicChange(entry: number,value: number){
+    
+    this.database.tracks[entry].topic=value;
+   }
+   onReportChange(entry: number,value: string){
+    //alert(value);
+    this.database.tracks[entry].report=value;
+   }
+   onStartDateChange(entry: number,value: string){
+    let timestamp=Date.parse(value.replace("T", " "));
+    //alert(value+" "+timestamp);
+    this.database.tracks[entry].start=timestamp;
+   }
+   onEndDateChange(entry: number,value: string){
+    let timestamp=Date.parse(value.replace("T", " "));
+    
+    this.database.tracks[entry].end=timestamp;
+   }
 }
