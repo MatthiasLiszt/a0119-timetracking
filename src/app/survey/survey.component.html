@@ -3,11 +3,12 @@
    <p>Date <input type="datetime-local" (change)="setDatetimeFilter($event.target.value)"></p>
    <div id="reportList">
       <table> 
-      <tr *ngFor="let entry of reportlist;let i=index" >
+      <ng-container *ngFor="let entry of reportlist;let i=index" >    
+      <tr *ngIf="isDeleted(i)" >
             
         <td>{{entry[0]}}</td>    
         <!--td><input type="text" class="trackName" placeholder="{{entry[1]}}"></td-->    
-        <td><select class="trackSelect" (change)="onUserChange(i,$event.target.value)">
+        <td><select class="trackSelect" (change)="onUserChange(i,$event.target.value)" >
                 <option value="getIndexFromArray(this.database.user,entry[1])">{{entry[1]}}</option>
                 <option *ngFor="let user of this.database.user; let j=index" value="{{j}}">{{user}}</option>
               </select>
@@ -35,6 +36,7 @@
             <button><mat-icon>more_vert</mat-icon></button>
         </td>
     </tr>    
+    </ng-container>
     </table>    
    </div>
    <div id="reportFilter">
