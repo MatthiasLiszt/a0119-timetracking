@@ -1,0 +1,31 @@
+
+
+<mat-toolbar color="primary">
+  <button mat-icon-button id="logocafe">
+    <mat-icon>local_cafe</mat-icon>  
+  </button> 
+  <span class="fillSpace"></span>
+  <button id="burgermenu" mat-icon-button [matMenuTriggerFor]="menu">
+    <mat-icon>menu</mat-icon>  
+ </button>
+ <mat-menu #menu id="matSubmenu" >
+
+  <button mat-menu-item routerLink="/report">
+     <mat-icon>dashboard</mat-icon>
+     <span>report</span>
+  </button>   
+  <button mat-menu-item routerLink="/timetracking">
+    <mat-icon>book</mat-icon>
+    <span>ticket</span>
+  </button>   
+  <button mat-menu-item routerLink="/logout">
+    <mat-icon>exit_to_app</mat-icon>
+    <span>logOut</span>
+  </button>   
+  <button mat-menu-item routerLink="/login">
+    <mat-icon>account_box</mat-icon>
+    <span>logIn</span>
+   </button>   
+
+</mat-menu>   
+</mat-toolbar>

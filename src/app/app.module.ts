@@ -22,6 +22,7 @@ import {MatSidenavModule} from '@angular/material/sidenav';
 import {MatListModule} from '@angular/material/list';
 import {MatToolbarModule} from '@angular/material/toolbar';
 import { UpdaterecordComponent } from './updaterecord/updaterecord.component';
+import { AppbarComponent } from './appbar/appbar.component';
 
 @NgModule({
   declarations: [
@@ -31,7 +32,8 @@ import { UpdaterecordComponent } from './updaterecord/updaterecord.component';
     SurveyComponent,
     LogoutComponent,
     
-    UpdaterecordComponent
+    UpdaterecordComponent,
+    AppbarComponent
   ],
   imports: [
     BrowserModule,
@@ -51,9 +53,10 @@ import { UpdaterecordComponent } from './updaterecord/updaterecord.component';
     RouterModule.forRoot([]),
     FormsModule
   ],
+  exports: [AppbarComponent],
   providers: [],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
-export class PizzaPartyAppModule { }
+
 
