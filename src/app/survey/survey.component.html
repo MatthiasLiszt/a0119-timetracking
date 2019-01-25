@@ -6,9 +6,9 @@
       <ng-container *ngFor="let entry of reportlist;let i=index" >    
       <tr *ngIf="isDeleted(i)" >
             
-        <td>{{entry[0]}}</td>    
+        <td class="entryNumber">{{entry[0]}}</td>    
         <!--td><input type="text" class="trackName" placeholder="{{entry[1]}}"></td-->    
-        <td><select class="trackSelect" (change)="onUserChange(i,$event.target.value)" >
+        <td><select class="trackName" (change)="onUserChange(i,$event.target.value)" >
                 <option value="getIndexFromArray(this.database.user,entry[1])">{{entry[1]}}</option>
                 <option *ngFor="let user of this.database.user; let j=index" value="{{j}}">{{user}}</option>
               </select>
@@ -30,10 +30,28 @@
         </td>  
         <td><input type="text" class="trackReport" placeholder="{{entry[5]}}" (change)="onReportChange(i,$event.target.value)"></td>    
         <!-- value="2017-06-13T13:00" 1970-01-01T00:33:50.111Z -->
-        <td><input type="datetime-local" class="trackName" value="{{entry[6]}}" (change)="onStartDateChange(i,$event.target.value)"></td>
-        <td><input type="datetime-local" class="trackName" value="{{entry[7]}}" (change)="onEndDateChange(i,$event.target.value)"></td>
-        <td class="entryhead"><button (click)="deleteTimeRecord(entry[0])"><mat-icon>delete_forever</mat-icon></button>
-            <button><mat-icon>more_vert</mat-icon></button>
+        <td><span class="datetimeWrapper">
+              <input type="datetime-local" class="trackDate" value="{{entry[6]}}" (change)="onStartDateChange(i,$event.target.value)">
+              <span class="shortdate">{{calcShortDate(entry[6])}}</span> 
+            </span>
+        </td>
+        <td><span class="datetimeWrapper">
+              <input type="datetime-local" class="trackDate" value="{{entry[7]}}" (change)="onEndDateChange(i,$event.target.value)">
+              <span class="shortdate">{{calcShortDate(entry[7])}}</span> 
+            </span> 
+        </td>
+        <td class="entryhead">
+            <button class="deleteButton" (click)="deleteTimeRecord(entry[0])">
+               <mat-icon>delete_forever</mat-icon>
+            </button>
+            <button mat-icon-button [matMenuTriggerFor]="more">
+                <mat-icon>more_vert</mat-icon>
+            </button>
+            <mat-menu #more  >
+               <button mat-menu-item  (click)="deleteTimeRecord(entry[0])">
+                 <mat-icon>delete_forever</mat-icon>
+                </button> 
+            </mat-menu>
         </td>
     </tr>    
     </ng-container>

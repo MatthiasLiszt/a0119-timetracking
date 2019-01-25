@@ -16,7 +16,7 @@
 .trackName
   background-color: transparent
   border: none
-  width: 6em
+  width: 5ch
 
 .trackName:hover
  border: 2px solid black  
@@ -30,7 +30,7 @@
 .trackReport
   background-color: transparent
   border: none
-  width: 2em  
+  width: 2ch  
 
 .trackReport::placeholder
   color: black  
@@ -41,6 +41,24 @@
 .trackSelect
   border: none
   background-color: transparent
-    
-    
-    
+  width: 6ch  
+
+.trackSelect:hover
+  width: auto    
+
+.trackDate  
+  border: none
+  background-color: transparent
+  display: none
+
+.datetimeWrapper:hover .trackDate
+  display: inline
+
+.datetimeWrapper:hover .shortdate
+  display: none
+
+@media only screen and (max-width: 640px) 
+  .deleteButton    
+    display: none
+  .entryNumber
+    display: none

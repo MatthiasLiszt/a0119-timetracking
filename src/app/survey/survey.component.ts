@@ -24,6 +24,7 @@ export class SurveyComponent implements OnInit {
   datetimeFilter: number;
   crud: DatabaseService;
   refreshed: number;
+  screenWidth: number;
 
   constructor(private databaseService: DatabaseService, public router: Router/*parentComponent: AppComponent*/) {
     //this.database=parentComponent; 
@@ -37,6 +38,7 @@ export class SurveyComponent implements OnInit {
     this.locationFilter = off;
     this.datetimeFilter = off;
     this.refreshed = 1;
+    this.screenWidth=window.innerWidth;
   }
 
   ngOnInit() {
@@ -167,9 +169,23 @@ export class SurveyComponent implements OnInit {
     this.database.tracks[entry].end = timestamp;
   }
 
-  isDeleted(entry: number){
+  isDeleted(entry: number): boolean{
     if (this.database.tracks[entry].user < 0){ return false;}
     else {return true;}
 
+  }
+
+  calcShortDate(datetime: string): string{
+   let dtime=datetime.split('-');
+   let month=dtime[1];
+   let dayx=dtime[2].split('T');
+   let day=dayx[0];
+   return month+"-"+day;
+  }
+
+  isSmallScreen(): boolean{
+   if(window.innerWidth<640) 
+    {return true;}
+   return false; 
   }
 }
