@@ -1,4 +1,6 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit/*, ViewChild */} from '@angular/core';
+
+//import { MatMenuTrigger } from '@angular/material';
 
 @Component({
   selector: 'app-appbar',
@@ -6,6 +8,8 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./appbar.component.scss']
 })
 export class AppbarComponent implements OnInit {
+
+  //@ViewChild('menuTrigger') menuTrigger: MatMenuTrigger;
 
   constructor() { }
 
