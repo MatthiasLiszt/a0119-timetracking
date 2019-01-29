@@ -21,7 +21,15 @@ import {MatTabsModule} from '@angular/material/tabs';
 import {MatSidenavModule} from '@angular/material/sidenav';
 import {MatListModule} from '@angular/material/list';
 import {MatToolbarModule} from '@angular/material/toolbar';
+
 import { UpdaterecordComponent } from './updaterecord/updaterecord.component';
+import { ReportComponent } from './report/report.component';
+import { ReportfilterComponent } from './reportfilter/reportfilter.component';
+import { ReportlistComponent } from './reportlist/reportlist.component';
+
+import { ShortdatePipe } from './shortdate.pipe';
+import { ShortenPipe } from './shorten.pipe';
+import { ShortnamePipe } from './shortname.pipe';
 
 @NgModule({
   declarations: [
@@ -31,7 +39,16 @@ import { UpdaterecordComponent } from './updaterecord/updaterecord.component';
     SurveyComponent,
     LogoutComponent,
     
-    UpdaterecordComponent
+    UpdaterecordComponent,
+    
+    ReportComponent,
+    
+    ReportfilterComponent,
+    
+    ReportlistComponent,
+    ShortdatePipe,
+    ShortenPipe,
+    ShortnamePipe
   ],
   imports: [
     BrowserModule,
@@ -52,7 +69,8 @@ import { UpdaterecordComponent } from './updaterecord/updaterecord.component';
     FormsModule
   ],
   providers: [],
-  bootstrap: [AppComponent]
+  bootstrap: [AppComponent],
+  exports:[ShortdatePipe,ShortenPipe,ShortnamePipe]
 })
 export class AppModule { }
 export class PizzaPartyAppModule { }

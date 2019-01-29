@@ -1,0 +1,34 @@
+<p>Date <input type="datetime-local" [(ngModel)]="datetime" id="datetimeFilter"></p>
+<div id="reportFilter">
+  <p>
+      <!--select (change)="setCategoryFilter($event.target.value)"  [(ngModel)]="Reportfilter.category" (change)="popup();"-->
+      <select id="categoryFilter"  [(ngModel)]="category"  >
+          <option value="all">all</option>
+          <option *ngFor="let category of database.category;let i = index;" [value]="database.category[i]">
+           {{category}}   
+          </option>
+          
+      </select>
+      <select id="userFilter" [(ngModel)]="user">
+          <option value="all">all</option>
+          <option *ngFor="let user of database.user;let i = index;" [value]="database.user[i]">
+                {{user}}   
+          </option>
+      </select>
+    </p>
+    <p>  
+      <select id="topicFilter" [(ngModel)]="topic">
+          <option value="all">all</option>
+          <option *ngFor="let topic of database.topic;let i = index;" [value]="database.topic[i]">
+                {{topic}}   
+          </option>
+      </select>
+      <select id="locationFilter" [(ngModel)]="location">
+          <option value="all">all</option>
+          <option *ngFor="let location of database.location;let i = index;" [value]="database.location[i]">
+                {{location}}   
+          </option>
+      </select>
+  </p>
+
+</div>  

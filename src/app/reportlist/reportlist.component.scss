@@ -1,0 +1,96 @@
+
+#reportList{
+ background-color:lightgrey;
+ //font-size: 10px;
+ margin: 2ch auto;
+ width: 90vw;   
+}
+
+.datetime{
+ border: none;
+ background-color: transparent; 
+}
+
+.datetime .dtselector{
+  display: none;
+ 
+}
+
+.datetime:focus .dtselector{
+ display: inline;    
+ 
+}
+
+.datetime:focus-within .dtselector{
+  display: inline;    
+ }
+
+.datetime:focus-within .shortdate{
+ display: none;  
+}
+.datetime:focus .shortdate{
+ display: none;
+}
+
+
+.iTrigger:focus select{
+ width: 11ch; 
+ border: none;
+ background-color: transparent; 
+}
+
+
+.customSelect::after{
+ background-color: transparent;
+}
+
+.iTrigger select{
+ width: 2ch;
+ border: none;
+ background-color: transparent;
+}
+
+.iTrigger::placeholder{
+ color: black; 
+}
+
+.iTrigger{
+ background-color: transparent;
+ border: none; 
+}
+
+.entryhead button{
+ border: none;
+ background-color: transparent;  
+}
+
+.shortened{
+  display: none;
+}
+
+@media only screen and (max-width: 640px) 
+ {.deleteButton    
+    {display: none;}
+  .entryNumber
+    {display: none;}
+  .elongated
+   {display: none;}  
+  .shorttopic 
+   {display: inline;} 
+  .iTrigger:focus .shortened{
+   display: none; 
+  } 
+  .iTrigger .shortened{
+   display: inline; 
+  }
+ } 
+
+/* 
+@media only screen and (min-width: 641px) 
+ {.longtopic
+   {display: inline;}  
+  .shorttopic
+   {display: none;} 
+ }*/
+
+ 

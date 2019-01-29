@@ -2,10 +2,10 @@
             "location":["Wien","Graz","Linz"],
             "user": ["Yoshi Takahashi","Sakura Mikimoto","Sasuke Miyazaki"],
             "category":["engineering","support","consulting"],
-            "tracks":[{"user": 1,"topic": 1, "location": 0, "category": 2, 
-                       "start": 0, "end": 3600000, "report": "..."},
-                       {"user": 2,"topic": 2, "location": 1, "category": 2, 
-                       "start": 50000, "end": 80000000, "report": "..."},
-                       {"user": 0,"topic": 2, "location": 2, "category": 1, 
-                       "start": 2000111, "end": 2030111, "report": "..."}]
+            "tracks":[{"entry": 1,"user": "Sakura Mikimoto","topic": "React", "location": "Wien", "category": "support", 
+                       "start": "1970-01-01T00:33:50.111Z", "end": "1970-01-01T07:33:50.111Z", "report": "...","delete": false},
+                       {"entry": 2,"user": "Sasuke Miyazaki","topic": "Angular", "location": "Graz", "category": "support", 
+                       "start": "1970-01-02T08:33:50.111Z", "end": "1970-01-02T19:33:50.111Z", "report": "...","delete": false},
+                       {"entry": 3,"user": "Yoshi Takahashi","topic": "Vue", "location": "Linz", "category": "engineering", 
+                       "start": "1970-01-02T09:33:50.111Z", "end": "1970-01-02T14:33:50.111Z", "report": "...","delete": false}]
 }

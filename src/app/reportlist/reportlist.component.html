@@ -1,0 +1,74 @@
+<div id="reportList">
+  <table>
+     <ng-container *ngFor="let entry of database.tracks;let i=index">
+     <tr *ngIf="isDeleted(i)">
+      <td><button class="iTrigger">
+            <span class="elongated">{{database.tracks[i].user}}</span>
+            <span class="shortened">{{database.tracks[i].user | shortname}}</span>
+            <select class="customSelect" [(ngModel)]="database.tracks[i].user">
+              <option *ngFor="let user of database.user" [value]="user">
+               {{user}} 
+              </option>
+            </select>  
+          </button>
+      </td>
+      <td>
+          <button class="iTrigger">
+            <span class="elongated">{{database.tracks[i].topic}}</span>
+            <span class="shortened">{{database.tracks[i].topic | shorten}}</span>
+            <select class="customSelect" [(ngModel)]="database.tracks[i].topic">
+                <option *ngFor="let topic of database.topic" value="{{topic}}">
+                 {{topic}} 
+                </option>
+            </select>  
+          </button>
+      </td>
+      <td>
+          <button class="iTrigger">
+              <span class="elongated">{{database.tracks[i].location}}</span>
+              <span class="shortened">{{database.tracks[i].location | shorten}}</span>
+              <select class="customSelect" [(ngModel)]="database.tracks[i].location">
+                  <option *ngFor="let location of database.location" value="{{location}}">
+                   {{location}} 
+                  </option>
+                </select>  
+            </button>
+      </td>
+      <td>
+          <button class="iTrigger">
+              <span class="elongated">{{database.tracks[i].category}}</span>
+              <span class="shortened">{{database.tracks[i].category | shorten}}</span>
+              <select class="customSelect" [(ngModel)]="database.tracks[i].category">
+                  <option *ngFor="let category of database.category" value="{{category}}">
+                    {{category}} 
+                  </option>
+                </select>  
+            </button>  
+      </td>
+      <td><button class="datetime">
+             <input type="datetime-local" class="dtselector" [(ngModel)]="database.tracks[i].start">
+             <span class="shortdate">{{database.tracks[i].start | shortdate}}</span>
+            </button>
+      </td>
+      <td><button class="datetime">
+            <input type="datetime-local" class="dtselector" [(ngModel)]="database.tracks[i].end">
+            <span class="shortdate">{{database.tracks[i].end | shortdate}}</span>
+          </button>
+      </td>
+      <td class="entryhead">
+          <!-->button class="deleteButton" (click)="deleteTimeRecord(database.tracks[i].entry)">
+             <mat-icon>delete_forever</mat-icon>
+          </button-->
+          <button mat-icon-button [matMenuTriggerFor]="more">
+              <mat-icon>more_vert</mat-icon>
+          </button>
+          <mat-menu #more  >
+             <button mat-menu-item  (click)="deleteTimeRecord(database.tracks[i].entry)">
+               <mat-icon>delete_forever</mat-icon>
+              </button> 
+          </mat-menu>
+      </td>
+    </tr>  
+    </ng-container>
+  </table>    
+</div>  

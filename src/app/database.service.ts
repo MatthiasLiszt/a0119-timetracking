@@ -88,9 +88,10 @@ export class DatabaseService {
     return this.database.tracks[entry];
   }
 
-  deleteTimeRecord(entry: number) {
+  deleteTimeRecord(entry: number) { // changed in T10 !!! review
     //if the user number < 0 then it is not a valid user and the entry is regarded as deleted 
-    this.database.tracks[entry].user = -1;
+    //this.database.tracks[entry].user = -1;
+    this.database.tracks[entry].delete=true;
     //return {input: entry, httpCode: 200 ,output: this.database.tracks[entry]};
     return this.database.tracks[entry];
   }
