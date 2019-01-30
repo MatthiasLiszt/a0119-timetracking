@@ -47,3 +47,22 @@ Speichern ohne Click!
                         
                wireMock is wie der JSON-server (verwendet json file als mock)
 
+Meeting 250119
+
+AppBar 
+  eigene appbar component 
+  + unit tests
+  - view encapsulation
+  + theming (mat design)
+  + scss syntax
+  
+survey component
+  + unit tests
+  + statt generieren aus json lesen
+  + pipe fuers formatieren von datumstypen schreiben 
+  + IsoString statt timestamp fuers datum
+  + Object Notation statt Array fuer Time Records 
+  + in mehrere components aufteilen (strukturierung)
+  - hover!!!
+  
+

@@ -1,6 +1,7 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 
 import { ReportComponent } from './report.component';
+<<<<<<< HEAD
 import { ReportfilterComponent } from '../reportfilter/reportfilter.component';
 import { ReportlistComponent } from '../reportlist/reportlist.component';
 
@@ -14,6 +15,8 @@ import { Observable, Subscription } from 'rxjs';
 import { DatabaseService } from '../database.service';
 
 import { NO_ERRORS_SCHEMA } from '@angular/core';
+=======
+>>>>>>> 347c89eba3af17a32ee286050710d733a7ec1079
 
 describe('ReportComponent', () => {
   let component: ReportComponent;
@@ -21,6 +24,7 @@ describe('ReportComponent', () => {
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
+<<<<<<< HEAD
       
       imports:[HttpClientModule],
       declarations: [
@@ -36,6 +40,9 @@ describe('ReportComponent', () => {
       providers: [DatabaseService],
       schemas: [NO_ERRORS_SCHEMA]
 
+=======
+      declarations: [ ReportComponent ]
+>>>>>>> 347c89eba3af17a32ee286050710d733a7ec1079
     })
     .compileComponents();
   }));

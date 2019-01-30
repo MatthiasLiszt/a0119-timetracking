@@ -23,6 +23,7 @@ import {MatListModule} from '@angular/material/list';
 import {MatToolbarModule} from '@angular/material/toolbar';
 
 import { UpdaterecordComponent } from './updaterecord/updaterecord.component';
+
 import { ReportComponent } from './report/report.component';
 import { ReportfilterComponent } from './reportfilter/reportfilter.component';
 import { ReportlistComponent } from './reportlist/reportlist.component';
@@ -30,6 +31,9 @@ import { ReportlistComponent } from './reportlist/reportlist.component';
 import { ShortdatePipe } from './shortdate.pipe';
 import { ShortenPipe } from './shorten.pipe';
 import { ShortnamePipe } from './shortname.pipe';
+
+import { AppbarComponent } from './appbar/appbar.component';
+
 
 @NgModule({
   declarations: [
@@ -48,7 +52,10 @@ import { ShortnamePipe } from './shortname.pipe';
     ReportlistComponent,
     ShortdatePipe,
     ShortenPipe,
-    ShortnamePipe
+    ShortnamePipe,
+
+    AppbarComponent
+
   ],
   imports: [
     BrowserModule,
@@ -68,10 +75,11 @@ import { ShortnamePipe } from './shortname.pipe';
     RouterModule.forRoot([]),
     FormsModule
   ],
+  
   providers: [],
   bootstrap: [AppComponent],
-  exports:[ShortdatePipe,ShortenPipe,ShortnamePipe]
+  exports:[AppbarComponent,ShortdatePipe,ShortenPipe,ShortnamePipe]
 })
 export class AppModule { }
-export class PizzaPartyAppModule { }
+
 
