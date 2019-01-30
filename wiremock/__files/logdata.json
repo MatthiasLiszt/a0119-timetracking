@@ -1,0 +1,20 @@
+{
+    "data": [
+        {
+            "loginHash": "yotaka1234",
+            "userNumber": 0
+        },
+        {
+            "loginHash": "samiki4321",
+            "userNumber": 1
+        },
+        {
+            "loginHash": "samiya2019",
+            "userNumber": 2
+        },
+        {
+            "loginHash": "admin1111",
+            "userNumber": 12
+        }
+    ]
+}

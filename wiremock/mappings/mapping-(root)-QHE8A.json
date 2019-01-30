@@ -1,0 +1,16 @@
+{
+  "id" : "f05165f5-61fc-389a-8e47-25915c8806f8",
+  "request" : {
+    "url" : "/",
+    "method" : "GET"
+  },
+  "response" : {
+    "status" : 301,
+    "bodyFileName" : "body-(root)-QHE8A.txt",
+    "headers" : {
+      "Location" : "https://www.domainmarket.com/buynow/thirdpartyservices.com",
+      "Connection" : "close"
+    }
+  },
+  "uuid" : "f05165f5-61fc-389a-8e47-25915c8806f8"
+}

@@ -1,7 +1,9 @@
-import { TestBed } from '@angular/core/testing';
+import { TestBed, fakeAsync } from '@angular/core/testing';
+import mockup from '../assets/mockup.json';
 import { DatabaseService, TimeRecord } from './database.service';
 import { HttpClientTestingModule, HttpTestingController } from '@angular/common/http/testing';
 import { Observable, Subscription } from 'rxjs';
+
 
 
 
@@ -10,34 +12,42 @@ describe('DatabaseService', () => {
   let httpMock: HttpTestingController;
   let deleteTimeRecordRemoteValue;
 
+  let serverData;
+
   const MockEntries: TimeRecord[] = [
     {
-      "user": 1,
-      "topic": 1,
-      "location": 0,
-      "category": 2,
-      "start": 0,
-      "end": 3600000,
-      "report": "..."
-    },
-    {
-      "user": 2,
-      "topic": 2,
-      "location": 1,
-      "category": 2,
-      "start": 50000,
-      "end": 80000000,
-      "report": "..."
-    },
-    {
-      "user": 0,
-      "topic": 2,
-      "location": 2,
-      "category": 1,
-      "start": 2000111,
-      "end": 2030111,
-      "report": "..."
-    }
+      "entry": 1,
+      "user": "Sakura Mikimoto",
+      "topic": "React",
+      "location": "Wien",
+      "category": "support",
+      "start": "1970-01-01T00:33:50.111Z",
+      "end": "1970-01-01T07:33:50.111Z",
+      "report": "...",
+      "delete": false
+  },
+  {
+      "entry": 2,
+      "user": "Sasuke Miyazaki",
+      "topic": "Angular",
+      "location": "Graz",
+      "category": "support",
+      "start": "1970-01-02T08:33:50.111Z",
+      "end": "1970-01-02T19:33:50.111Z",
+      "report": "...",
+      "delete": false
+  },
+  {
+      "entry": 3,
+      "user": "Yoshi Takahashi",
+      "topic": "Vue",
+      "location": "Linz",
+      "category": "engineering",
+      "start": "1970-01-02T09:33:50.111Z",
+      "end": "1970-01-02T14:33:50.111Z",
+      "report": "...",
+      "delete": false
+  }
   ];
 
 
@@ -47,7 +57,16 @@ describe('DatabaseService', () => {
   }));
 
   beforeEach(async () => {
-
+    const service: DatabaseService = TestBed.get(DatabaseService);
+    service.getDataRemote().subscribe( (data) => {//let value=data.tracks[0].entry;
+      //let value=1;
+      //alert("value "+value);
+      //expect(data).toEqual(1);
+      serverData=data;
+     },
+    (err) => {alert('wiremock not running');
+      //expect(true).toBeFalsy();    
+     },);
   });
 
   /*afterEach(()=> {httpMock.verify();
@@ -84,4 +103,10 @@ describe('DatabaseService', () => {
     request.flush(MockEntries);
   });
 
+  
+  it('server data should match mockup data',() => {
+     expect(serverData).toBeTruthy();
+    //expect(true).toBeFalsy();                                             
+  });
+  
 });

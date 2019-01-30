@@ -5,13 +5,15 @@ import { HttpClient } from '@angular/common/http';
 import { Observable, Subscription } from 'rxjs';
 
 export interface TimeRecord {
-  "user": number,
-  "topic": number,
-  "location": number,
-  "category": number,
-  "start": number,
-  "end": number,
-  "report": string
+  "entry": number,
+  "user": string,
+  "topic": string,
+  "location": string,
+  "category": string,
+  "start": string,
+  "end": string,
+  "report": string,
+  "delete": boolean
 }
 
 @Injectable({
@@ -28,13 +30,24 @@ export class DatabaseService {
   constructor(private http: HttpClient) {
     this.database = mockup;
     this.writeURL = "0.0.0.0";
-
+    this.readURL = "127.0.0.1:8080/mockup.json";
   }
 
+  
   getData() {
     return mockup;
   }
-
+  
+  getDataRemote() {
+   return this.http.get(this.readURL);
+  }
+  /*
+  fetchRemoteData(){
+   let fetch=this.getDataRemote(); 
+   fetch.subscribe((data) => this.database = data
+                  );
+  }*/
+  
   getLogData() {
     return logData;
   }
